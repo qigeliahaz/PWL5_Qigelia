@@ -40,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware('auth')->group(function(){
         Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('book.destroy');
     });
+    Route::middleware('auth')->group(function(){
+        Route::get('/books/print', [BookController::class, 'print'])->name('book.print');
+    });
 });
 
 require __DIR__.'/auth.php';
